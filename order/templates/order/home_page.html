@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kool Karen Order</title>
+</head>
+<body>
+	<h1>Kool Karen Retail Store</h1>
+	<p>Your convenience is our duty</p>
+
+	<h2>Here are all our items!</h2>
+
+	<!-- Item 1 -->
+	<p>Strawberry: 40RMB/Kilo</p>
+	<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525173869&di=76e13da6e1ebdd701de5ac0a2231fe9f&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F016d4256f1177b6ac7257d207ce5dd.JPG%401280w_1l_2o_100sh.jpg">
+	<br>
+
+	<!-- Item 2 -->
+	<p>Toy Bear: 66RMB</p>
+	<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2763998922,3048854906&fm=27&gp=0.jpg">
+
+	<!-- Item 3 -->
+	<p>Chocolate: 15RMB/Piece</p>
+	<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524579304840&di=8dad86a067cb0464ac05f58a05f99747&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F8601a18b87d6277f3c616e0223381f30e924fc9d.jpg">
+
+	<!-- Order Form -->
+	<h2>Place your Order</h2>
+	<form action="{% url 'order:home_page' %}" method="POST">
+		{% csrf_token %}	
+		<input type="text" name="item" placeholder="Please Type Which Item You Want"><br>
+		<textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+		<input type="submit" value="Place Your Order">
+	</form>
+
+	<!-- Show Order -->
+	<h1>Your Order:</h1>
+	<p>Item Ordered: {{item}}</p>
+	<p>Delivery Address: {{address}}</p>
+
+</body>
+</html>
